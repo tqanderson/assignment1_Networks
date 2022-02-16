@@ -35,7 +35,8 @@ while True:
         following_header = "\r\n".join("%s:%s" % (item, basic_header[item]) for item in basic_header)
         print
         "following_header:", following_header
-        connectionSocket.send("%s\r\n%s\r\n\r\n" % (http_header, following_header))
+        reqmsg = "%s\r\n%s\r\n\r\n" % (http_header, following_header)
+        connectionSocket.send(reqmsg.encode())
 
         for i in range(0, len(outputdata)):
             connectionSocket.send(outputdata[i].encode())
@@ -43,8 +44,8 @@ while True:
 
         connectionSocket.close()
     except IOError:
-        connectionSocket.send(
-            "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<!doctype html><html><body><h1>404 Not Found<h1></body></html>")
+        errormsg = "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<!doctype html><html><body><h1>404 Not Found<h1></body></html>"
+        connectionSocket.send(errormsg.encode())
 # Send response message for file not found
         connectionSocket.close()
 # Fill in end

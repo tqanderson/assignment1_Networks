@@ -16,7 +16,7 @@ except IOError:
 final = ""
 response_message = client_socket.recv(1024)
 while response_message:
-    final += response_message
+    final += response_message.decode("utf-8")
     response_message = client_socket.recv(1024)
 
 client_socket.close()
