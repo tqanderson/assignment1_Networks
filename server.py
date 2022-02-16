@@ -1,6 +1,6 @@
-# import socket module
 from socket import *
 import datetime
+import time
 import sys  # In order to terminate the program
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -17,7 +17,7 @@ while True:
     try:
         message = connectionSocket.recv(1024)  # network buffer
         filename = message.split()[1]
-        f = open(filename[1:])
+        f = open(filename)
         outputdata = f.read()
         now = datetime.datetime.now()
         # Send one HTTP header line into socket
