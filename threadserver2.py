@@ -18,7 +18,7 @@ def multi_threaded(connection):
     connection.send(str.encode('Server is on:'))
     while True:
         data = connection.recv(2048)
-        response = 'Server message: ' + data.decode('utf-8')
+        response = 'Request: ' + data.decode('utf-8')
         if not data:
             break
         print(response)
