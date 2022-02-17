@@ -21,10 +21,11 @@ def multi_threaded_client(connection):
             break
         print(response)
         filename = data.split()[1]
-        f = open(filename[1:])
-        outputdata = f.read()
-        now = datetime.datetime.now()
-        print(outputdata)
+        try:
+            f = open(filename[1:])
+            print("200 OK")
+        except IOError:
+            print("404 Not Found")
         # Send one HTTP header line into socket
         connection.sendall(str.encode(response))
     connection.close()
