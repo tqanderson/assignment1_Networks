@@ -1,8 +1,6 @@
 # Reference: https://www.positronx.io/create-socket-server-with-multiple-clients-in-python/
 
 import socket
-import os
-import datetime
 from _thread import *
 ServerSideSocket = socket.socket()
 host = '127.0.0.1'
@@ -28,7 +26,6 @@ def multi_threaded(connection):
             print("200 OK")
         except IOError:
             print("404 Not Found")
-        # Send one HTTP header line into socket
         connection.sendall(str.encode(response))
     connection.close()
 while True:
