@@ -17,7 +17,7 @@ while True:
     try:
         message = connectionSocket.recv(1024)  # network buffer
         filename = message.split()[1]
-        f = open(filename)
+        f = open(filename[1:])
         outputdata = f.read()
         now = datetime.datetime.now()
         # Send one HTTP header line into socket
