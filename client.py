@@ -13,11 +13,11 @@ try:
 
 except IOError:
     sys.exit(1)
-final = ""
-response_message = client_socket.recv(1024)
-while response_message:
-    final += response_message.decode("utf-8")
-    response_message = client_socket.recv(1024)
+result = ""
+resp = client_socket.recv(1024)
+while resp:
+    result += resp.decode("utf-8")
+    resp = client_socket.recv(1024)
 
 client_socket.close()
-print("final:", final)
+print(result)
