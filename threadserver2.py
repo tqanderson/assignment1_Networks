@@ -6,7 +6,7 @@ import datetime
 from _thread import *
 ServerSideSocket = socket.socket()
 host = '127.0.0.1'
-port = 53235
+port = 53237
 ThreadCount = 0
 
 ServerSideSocket.bind((host, port))
@@ -34,7 +34,7 @@ def multi_threaded(connection):
 while True:
     Client, address = ServerSideSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
-    start_new_thread(multi_threaded_client, (Client, ))
+    start_new_thread(multi_threaded, (Client, ))
     ThreadCount += 1
     print('Thread Number: ' + str(ThreadCount))
 ServerSideSocket.close()
