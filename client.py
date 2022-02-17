@@ -3,7 +3,7 @@ import sys
 
 server_host = sys.argv[1]
 server_port = int(sys.argv[2])
-filename = sys.argv[3]
+filename = "/" + sys.argv[3]
 req = "GET "+str(filename)+" HTTP/1.1"
 
 try:
@@ -21,4 +21,3 @@ while response_message:
 
 client_socket.close()
 print("final:", final)
-
