@@ -12,10 +12,10 @@ ServerSideSocket.bind((host, port))
 print('Socket is on')
 ServerSideSocket.listen(5)
 
-def multi_threaded(connection):
-    connection.send(str.encode('Server is on:'))
+def multi_threaded(con):
+    con.send(str.encode('Server is on:'))
     while True:
-        data = connection.recv(2048)
+        data = con.recv(2048)
         response = 'Request: ' + data.decode('utf-8')
         if not data:
             break
@@ -26,8 +26,8 @@ def multi_threaded(connection):
             print("200 OK")
         except IOError:
             print("404 Not Found")
-        connection.sendall(str.encode(response))
-    connection.close()
+        con.sendall(str.encode(response))
+    con.close()
 while True:
     Client, address = ServerSideSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
