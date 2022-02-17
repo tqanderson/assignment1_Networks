@@ -1,0 +1,51 @@
+Script started on 2022-02-16 23:05:32-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="122" LINES="65"]
+[tqanderson@delenn python_sockets]$ python3 server.py &
+[1] 488833
+[tqanderson@delenn python_sockets]$ Ready to serve...
+python3 client.py 127.0.0.1 53236 HelloWorld.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+
+ <p>Hello World! This test works!</p>
+
+</body>
+</html>
+
+Ready to serve...
+final: HTTP/1.1 200 OK
+Date:2022-02-16 23:05
+Content-Length:170
+Connection:Keep Alive
+Content Type:text/html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+
+ <p>Hello World! This test works!</p>
+
+</body>
+</html>
+
+
+[tqanderson@delenn python_sockets]$ python3 client.py 127.0.0.1 53236 test.html
+Ready to serve...
+final: HTTP/1.1 404 Not Found
+Content-Type: text/html
+
+HTTP/1.1 404 Not Found
+[tqanderson@delenn python_sockets]$ exit
+exit
+
+Script done on 2022-02-16 23:06:11-05:00 [COMMAND_EXIT_CODE="0"]
