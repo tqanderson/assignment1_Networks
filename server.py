@@ -44,7 +44,7 @@ while True:
 
         connectionSocket.close()
     except IOError:
-        errormsg = "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<!doctype html><html><body><h1>404 Not Found<h1></body></html>"
+        errormsg = "HTTP/1.1 404 Not Found"
         connectionSocket.send(errormsg.encode())
 # Send response message for file not found
         connectionSocket.close()
