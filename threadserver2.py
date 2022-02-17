@@ -8,14 +8,14 @@ ServerSideSocket = socket.socket()
 host = '127.0.0.1'
 port = 53235
 ThreadCount = 0
-try:
-    ServerSideSocket.bind((host, port))
-except socket.error as e:
-    print(str(e))
-print('Socket is listening..')
+
+ServerSideSocket.bind((host, port))
+
+print('Socket is on')
 ServerSideSocket.listen(5)
-def multi_threaded_client(connection):
-    connection.send(str.encode('Server is working:'))
+
+def multi_threaded(connection):
+    connection.send(str.encode('Server is on:'))
     while True:
         data = connection.recv(2048)
         response = 'Server message: ' + data.decode('utf-8')
