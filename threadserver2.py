@@ -1,5 +1,6 @@
 import socket
 import os
+import datetime
 from _thread import *
 ServerSideSocket = socket.socket()
 host = '127.0.0.1'
@@ -18,6 +19,13 @@ def multi_threaded_client(connection):
         response = 'Server message: ' + data.decode('utf-8')
         if not data:
             break
+        print(response)
+        filename = data.split()[1]
+        f = open(filename[1:])
+        outputdata = f.read()
+        now = datetime.datetime.now()
+        print(outputdata)
+        # Send one HTTP header line into socket
         connection.sendall(str.encode(response))
     connection.close()
 while True:
