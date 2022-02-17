@@ -10,12 +10,12 @@ ThreadCount = 0
 ServerSideSocket.bind((host, port))
 
 print('Socket is on')
-ServerSideSocket.listen(5)
+ServerSideSocket.listen(7)
 
-def multi_threaded(con):
+def multiThread(con):
     con.send(str.encode('Server is on:'))
     while True:
-        data = con.recv(2048)
+        data = con.recv(1024)
         response = 'Request: ' + data.decode('utf-8')
         if not data:
             break
@@ -31,7 +31,7 @@ def multi_threaded(con):
 while True:
     Client, address = ServerSideSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
-    start_new_thread(multi_threaded, (Client, ))
+    start_new_thread(multiThread, (Client, ))
     ThreadCount += 1
     print('Thread #' + str(ThreadCount))
 ServerSideSocket.close()
