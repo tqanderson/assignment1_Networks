@@ -1,0 +1,28 @@
+Script started on 2022-02-16 23:17:36-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="122" LINES="65"]
+[tqanderson@delenn python_sockets]$ python3 threadserver2.py &
+[1] 490379
+[tqanderson@delenn python_sockets]$ Socket is listening..
+Connected to: 127.0.0.1:50000
+Thread Number: 1
+Server message: GET /HelloWorld.html HTTP/1.1
+200 OK
+Connected to: 127.0.0.1:50002
+Thread Number: 2
+Server message: GET /BadFile.html HTTP/1.1
+404 Not Found
+Connected to: 127.0.0.1:50004
+Thread Number: 3
+Server message: GET /HelloWorld.html HTTP/1.1
+200 OK
+Connected to: 127.0.0.1:50006
+Thread Number: 4
+Server message: GET /HelloWorld.html HTTP/1.1
+200 OK
+Connected to: 127.0.0.1:50010
+Thread Number: 5
+Server message: GET /BadFile.html HTTP/1.1
+404 Not Found
+exit
+exit
+
+Script done on 2022-02-16 23:18:06-05:00 [COMMAND_EXIT_CODE="0"]
